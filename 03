@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter the Details</title>
+  <script>
+    function validate() {
+      var srn = document.getElementById("srn_check").value;
+      
+      // Regular expression for validating SRN format
+      var srnPattern = /^[A-Za-z]{1}\d{2}[A-Za-z]{2}\d{3}$/;
+      
+      if (!srnPattern.test(srn)) {
+        alert("Invalid SRN! Please enter a valid SRN.");
+        return false; // Prevent form submission
+      }
+      
+      alert("Success");
+      return true; // Allow form submission
+    }
+  </script>
+</head>
+<body>
+  <h1>Please enter the following field</h1>
+  <form onsubmit="return validate()">
+    <label for="srn_check">Enter SRN: </label>
+    <input type="text" id="srn_check" pattern="[A-Za-z]{1}\d{2}[A-Za-z]{2}\d{3}" required />
+    <br /><hr />
+    <input type="submit" value="Check" />
+  </form>
+</body>
+</html>
